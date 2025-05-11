@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="Live2D with intellegence|Hanazar Products">
+  <meta name="autuor" content="Hanazar Ochikawa">
+  <title>Digital soul | Better Live2d | Hanazar Ochikawa Products</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #0055ff;
+      overflow: hidden;
+    }
+    /* 将画布定宽高，并居中显示 */
+    #live2dCanvas {
+      position: absolute;
+      width: 850px;           /* 画布宽度，按模型宽高比设定 */
+      height: 1000px;         /* 画布高度，根据模型整体高度设定 */
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+  <canvas id="live2dCanvas"></canvas>
+
+  <!-- Live2D 渲染核心 -->
+  <script src="live2d/live2dcubismcore.min.js"></script>
+  <!-- Live2D 加载器 -->
+  <script src="live2d/live2d.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const canvas = document.getElementById("live2dCanvas");
+      // 同步 canvas 元素的分辨率与 CSS 大小一致
+      canvas.width  = canvas.clientWidth;
+      canvas.height = canvas.clientHeight;
+
+      loadlive2d("live2dCanvas", "Tia/index.json");
+    });
+  </script>
+</body>
+</html>
